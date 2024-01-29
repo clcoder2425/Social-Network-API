@@ -2,7 +2,7 @@
 
 const {User} = require ('../models');
 
-const user_Controller = {
+const User_Controller = {
     // Get all users
     getAllUsers(req, res){
         User.find({})
@@ -59,7 +59,7 @@ const user_Controller = {
         )
         .then(userInf => {
             if (!userInf){
-                return res.status(404).json({message: 'Usr not found'});
+                return res.status(404).json({message: 'User not found'});
             }
             res.json(userInf);
         })
@@ -73,11 +73,22 @@ const user_Controller = {
             {new: true}
         )
         .then((dbUserInf) => {
-            if(!dbUser){
+            if(!dbUserInf){
                 return res.status(404).json({message: "no user with this id has been found"});
+            }
+            // verify if the friend was removed
+            const deleted = !dbUserInf.friends.includes(params.friendId);
+            if(deleted){
+                res.json({message: 'Friend deleted successfully!', dbUserInf});
+            }else {
+                res.json(dbUserInf);
             }
 
         })
-    }
+        .catch((err) => res.status(400).json(err));
+    },
 
-}
+};
+
+// Export user_Controller
+module.exports = User_Controller;
