@@ -1,25 +1,20 @@
-//Importing controllers and dependencies
+const express = require('express');
+const router = express.Router();
+const userController = require('../../controllers/userController');
 
-const router = require('express').Router();
-const {
-    getAllUsers,
-    getUserById,
-    createUser,
-    updateUserById,
-    deleteUserById,
-    addFriend,
-    removeFriend,
-} = require('../../controllers/userController');
+// Routes for handling users
+router.route('/')
+  .get(userController.getAllUsers)
+  .post(userController.createUser);
 
-// Get and port all users
-router.route('/').get(getAllUsers).post(createUser);
+router.route('/:userId')
+  .get(userController.getUserById)
+  .put(userController.updateUserById)
+  .delete(userController.deleteUserById);
 
-// Get user by id, update and delete user by id
+// Routes for handling friends
+router.route('/:userId/friends/:friendId')
+  .post(userController.addFriend)
+  .delete(userController.removeFriend);
 
-router.route('/:userId').get(getUserById).put(updateUserById).delete(deleteUserById);
-
-// Post to add a friend and delete remove friend
-router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend);
-
-// Exporting the router
 module.exports = router;

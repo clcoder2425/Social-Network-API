@@ -1,10 +1,10 @@
 //Importing user model
 
-const {User} = require ('../models');
+const { User } = require ('../models');
 
 const User_Controller = {
     // Get all users
-    getAllUsers(req, res){
+    getAllUsers(req, res) {
         User.find({})
         .then(userInf => res.json(userInf))
         .catch(err => res.status (500).json(err));
@@ -42,7 +42,7 @@ const User_Controller = {
     deleteUserById(req, res){
         User.findOneAndDelete(req.params.id)
         .then(userInf => {
-            if(!usrInf){
+            if(!userInf){
                 return res.status(404).json({message: 'User not found'});
             }
             res.json({message: 'User deleted successfully'});

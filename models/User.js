@@ -3,7 +3,7 @@ const {Schema, model, Types} = require ('mongoose');
 
 // Schema specification
 
-const UserSchema = new Schema(
+const userSchema = new Schema(
     {
         username: {
             type: String,
@@ -30,8 +30,8 @@ const UserSchema = new Schema(
         ],
         thoughts: [
             {
-                types: Schema.Types.ObjectId,
-                ref: 'Thought,'
+                type: Schema.Types.ObjectId,
+                ref: 'Thought',
             }
         ],
 
@@ -46,10 +46,10 @@ const UserSchema = new Schema(
 
 // Creating virtuals properties for friendCount
 
-UserSchema.virtual('friendCount').get(function(){
+userSchema.virtual('friendCount').get(function(){
     return this.friends.length;
 });
 //Creating User model from the userSchema
-const User = model('User, userSchema')
+const User = model('User',userSchema)
 
 module.exports = User

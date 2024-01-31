@@ -7,10 +7,11 @@ const Thought_Controller = {
     async getAllThoughts(req, res){
         try {
             const thoughts = await Thought.find({});
-            res.json(thoughts);
+            res.status(200).json({ success: true, data: thoughts });
             
         } catch (error) {
-            res,stauts(500).json(error);
+            console.error("Error in getAllThoughts:", error);
+            res.status(500).json({ success: false, error: "Internal Server Error" });
             
         }
     },
@@ -20,13 +21,13 @@ const Thought_Controller = {
         try {
             const thought = await Thought.findOne({_id: req.params.thoughtId});
             if(!thought){
-                res.status(404).json({message: 'Thought no found'});
-            }else {
-                res.json(thought);
-            }
+                res.status(404).json({ success: false, message: 'Thought not found' });
+            } 
+             res.status(200).json({ success: true, data: thought });
             
         } catch (error) {
-            res.status(500).json(error);
+            console.error("Error in getThoughtsById:", error);
+            res.status(500).json({ success: false, error: "Internal Server Error" });
         }
     },
 
@@ -35,10 +36,10 @@ const Thought_Controller = {
     async createThought(req, res){
         try {
             const thought = await Thought.create(req.body);
-            res.status(201).json(thought);
+            res.status(201).json({ success: true, data: thought });
             
         } catch (error) {
-            res.stattus(500).json(error);
+            res.status(500).json(error);
         }
     },
     // To handle delete thought api endpoint

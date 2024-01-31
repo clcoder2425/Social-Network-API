@@ -7,7 +7,7 @@ const thought_routes = require('./thoughtRoutes');
 
 //Specifying endpoint for user and thought routes
 
-router.use('./user', user_routes);
-router.use('./thought', thought_routes);
+router.use('/user', user_routes);
+router.use('/thought', thought_routes);
 
 module.exports = router;
