@@ -1,3 +1,4 @@
+// Importing express, router and thought controller
 const express = require('express');
 const router = express.Router();
 const thoughtController = require('../../controllers/thoughtController');
