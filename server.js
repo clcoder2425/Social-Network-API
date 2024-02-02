@@ -2,8 +2,9 @@
 
 
 const express = require('express');
-
+// Importing Database connection
 const dataBase = require('./config/connection');
+//Importing routes
 const routes = require('./routes');
 
 const PORT = process.env.PORT || 3000;
