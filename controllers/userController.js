@@ -27,7 +27,7 @@ const User_Controller = {
     // Update user by ID
 
     updateUserById(req, res){
-        User.findOneAndUpdate(res.params.id, req.body, {new: true})
+        User.findOneAndUpdate(req.params.id, req.body, {new: true})
         .then(userInf => {
             if(!userInf){
                 return res.status (404).json({message: 'User not found'});

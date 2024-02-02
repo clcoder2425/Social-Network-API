@@ -37,26 +37,27 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ## Usage
 ### API Endpoints
 #### Users
-- GET /api/users: Get a list of all users.
-- GET /api/users/:userId: Get details of a specific user.
-- POST /api/users: Create a new user.
-- PUT /api/users/:userId: Update an existing user.
-- DELETE /api/users/:userId: Delete a user.
+- GET /api/user: Get a list of all users.
+- GET /api/user/:userId: Get details of a specific user.
+- POST /api/user: Create a new user.
+- PUT /api/user/:userId: Update an existing user.
+- DELETE /api/user/:userId: Delete a user.
 
 #### Thoughts
-- GET /api/thoughts: Get a list of all thoughts.
-- GET /api/thoughts/:thoughtId: Get details of a specific thought.
-- POST /api/thoughts: Create a new thought.
-- PUT /api/thoughts/:thoughtId: Update an existing thought.
-- DELETE /api/thoughts/:thoughtId: Delete a thought.
+- GET /api/thought: Get a list of all thoughts.
+- GET /api/thought/:thoughtId: Get details of a specific thought.
+- POST /api/thought: Create a new thought.
+- PUT /api/thought/:thoughtId: Update an existing thought.
+- DELETE /api/thought/:thoughtId: Delete a thought.
 
 #### Reactions
-- POST /api/reactions/:thoughtId: Add a reaction to a thought.
-- DELETE /api/reactions/:reactionId: Remove a reaction from a thought.
+- POST /api/thought/:thoughtId/reactions: Add a reaction to a thought.
+- DELETE /api/thought/thoughtId/reactions/reactionId: Remove a reaction from a thought.
 #### Friends
-- POST/api/users/:userId/friends/:friendId: add a new friend to a user's friend list
-- DELETE/api/users/:userId/friends/:friendId: remove a friend from a user's friend list
+- POST/api/user/:userId/friends/:friendId: add a new friend to a user's friend list
+- DELETE/api/user/:userId/friends/:friendId: remove a friend from a user's friend list
 
+## Video demonstration: https://drive.google.com/file/d/1lY7xLCZPGGtwauwx-m2BOCA5ZSNMqfuY/view
 
 ## Technologies
 - Node.js

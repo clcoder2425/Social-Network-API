@@ -1,6 +1,6 @@
 // Importing express
 const express = require('express');
-
+const bodyParser = require('body-parser');
 // Importing Database connection
 const dataBase = require('./config/connection');
 //Importing routes
