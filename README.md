@@ -80,6 +80,6 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
   Github: https://github.com/clcoder2425/Social-Network-API.git
 ## Credits
 - Connecting a MongoDB to Mongoose: https://dev.to/aritik/connecting-to-mongodb-using-mongoose-3akh
-- 
+- How to use Insomnia to test API Endpoints: https://dev.to/kmcknight91/how-to-use-insomnia-to-test-api-endpoints-1lad
 ## License
 This project is licensed under the **MIT License**.
