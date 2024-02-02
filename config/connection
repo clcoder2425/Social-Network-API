@@ -3,7 +3,7 @@ const mongoose = require ('mongoose');
 
 // connect Mongo DB
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network-API', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
